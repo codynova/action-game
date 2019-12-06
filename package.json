@@ -26,6 +26,7 @@
     "@babel/preset-react": "7.7.4",
     "@babel/preset-typescript": "7.7.4",
     "@hot-loader/react-dom": "16.11.0",
+    "@types/cannon": "0.1.4",
     "@types/classnames": "2.2.9",
     "@types/react": "16.9.15",
     "@types/react-dom": "16.9.4",
@@ -64,6 +65,7 @@
     "webpack-dev-server": "3.9.0"
   },
   "dependencies": {
+    "cannon": "0.6.2",
     "classnames": "2.2.6",
     "core-js": "3.4.7",
     "react": "16.12.0",
