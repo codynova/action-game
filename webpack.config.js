@@ -198,14 +198,6 @@ const applicationConfig = devMode => ({
 					to: path.resolve(OUTPUT_DIRECTORY, 'index.html'),
 				},
 				{
-					from: path.resolve(SOURCE_DIRECTORY, 'manifest.json'),
-					to: path.resolve(OUTPUT_DIRECTORY, 'manifest.json'),
-				},
-				{
-					from: path.resolve(SOURCE_DIRECTORY, 'offline.html'),
-					to: path.resolve(OUTPUT_DIRECTORY, 'offline.html'),
-				},
-				{
 					from: path.resolve(SOURCE_DIRECTORY, 'perlin.js'),
 					to: path.resolve(OUTPUT_DIRECTORY, 'perlin.js'),
 				},
@@ -222,25 +214,10 @@ const applicationConfig = devMode => ({
 	},
 });
 
-const webWorkerConfig = devMode => ({
-	...commonConfig(devMode),
-	entry: [
-		'./worker.ts',
-	],
-	output: {
-		path: OUTPUT_DIRECTORY,
-		filename: 'worker.js',
-		// https://github.com/webpack-contrib/worker-loader/issues/174
-		// https://github.com/webpack/webpack/issues/6642
-		globalObject: 'this',
-	},
-});
-
 module.exports = (env, argv) => {
 	const devMode = argv.prod === undefined;
 
 	return [
 		applicationConfig(devMode),
-		//webWorkerConfig(devMode),
 	];
 };

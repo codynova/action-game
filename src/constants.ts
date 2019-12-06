@@ -1,8 +1,6 @@
 
-const STORAGE_PREFIX = 'ReactThreeFiberTypescriptBoilerplate';
-const SERVICE_WORKER_URL = '/worker.js';
+const STORAGE_PREFIX = 'NovasActionGame';
 
 export {
 	STORAGE_PREFIX,
-	SERVICE_WORKER_URL,
 };

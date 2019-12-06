@@ -1,7 +1,7 @@
 {
-  "name": "react-three-fiber-typescript-boilerplate",
+  "name": "@novas/action-game",
   "version": "0.0.1",
-  "description": "Boilerplate for react-three-fiber with TypeScript",
+  "description": "Action game in react-three-fiber with TypeScript",
   "main": "bundle.js",
   "private": true,
   "scripts": {
