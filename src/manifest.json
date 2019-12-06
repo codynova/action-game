@@ -1,0 +1,21 @@
+{
+	"name": "Novas Boilerplate",
+	"short_name": "Novas Boiler",
+	"start_url": "index.html",
+	"display": "standalone",
+	"theme_color": "#5765cb",
+	"background_color": "#5765cb",
+	"description": "React, TypeScript, SCSS Modules, Hot Module Reloading boilerplate",
+	"icons": [
+		{
+			"src": "assets/icons/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/icons/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

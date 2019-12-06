@@ -1,0 +1,7 @@
+dist
+node_modules
+.DS_Store
+.vscode
+.idea
+package-lock.json
+webpack-stats.json

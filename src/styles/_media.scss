@@ -1,0 +1,82 @@
+@mixin media-min ($minSize) {
+	@media only screen and (min-width: #{$minSize}px) {
+		@content;
+	}
+}
+
+@mixin media-max ($maxSize) {
+	@media only screen and (max-width: #{$maxSize}px) {
+		@content;
+	}
+}
+
+@mixin media-min-max ($minSize, $maxSize) {
+	@media only screen and (min-width: #{$minSize}px) and (max-width: #{$maxSize}px) {
+		@content;
+	}
+}
+
+@mixin media-min-768 () {
+	@include media-min(768) {
+		@content;
+	}
+}
+
+@mixin media-landscape () {
+	@media only screen and (min-width: 768px) and (orientation: landscape) {
+		@content;
+	}
+}
+
+$media-iphone-X: '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)';
+$media-iphone-XS-max: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)';
+$media-iphone-XR: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)';
+$media-iphone-678-plus: '(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)';
+$media-iphone-678: '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)';
+$media-iphone-5: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)';
+
+@mixin iphone-Xs-Max () {
+	@media only screen and #{$media-iphone-XS-max} {
+		@content;
+	}
+}
+
+@mixin iphone-XR () {
+	@media only screen and #{$media-iphone-XR} {
+		@content;
+	}
+}
+
+@mixin iphone-X () {
+	@media only screen and #{$media-iphone-X} {
+		@content;
+	}
+}
+
+@mixin iphone-678-plus () {
+	@media only screen and #{$media-iphone-678-plus} {
+		@content;
+	}
+}
+
+@mixin iphone-678 () {
+	@media only screen and #{$media-iphone-678} {
+		@content;
+	}
+}
+
+@mixin iphone-5 () {
+	@media only screen and #{$media-iphone-5} {
+		@content;
+	}
+}
+
+@mixin iphone-notched () {
+	@media only screen and #{$media-iphone-X},
+		screen and #{$media-iphone-XS-max},
+		screen and #{$media-iphone-XR},
+		screen and #{$media-iphone-678-plus},
+		screen and #{$media-iphone-678} {
+		@content;
+	}
+}

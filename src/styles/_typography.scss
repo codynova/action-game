@@ -1,0 +1,43 @@
+@import '~Styles/media';
+
+$font-pt-sans: 'PT Sans', Helvetica, sans-serif;
+
+@mixin font-size-xsmall () {
+	font-size: 0.75rem;
+
+	@include media-min-768 {
+		font-size: 0.9rem;
+	}
+}
+
+@mixin font-size-small () {
+	font-size: 0.9rem;
+
+	@include media-min-768 {
+		font-size: 1.1rem;
+	}
+}
+
+@mixin font-size-medium () {
+	font-size: 1.1rem;
+
+	@include media-min-768 {
+		font-size: 1.325rem;
+	}
+}
+
+@mixin font-size-large () {
+	font-size: 1.325rem;
+
+	@include media-min-768 {
+		font-size: 1.8rem;
+	}
+}
+
+@mixin font-size-xlarge () {
+	font-size: 5rem;
+
+	@include media-min-768 {
+		font-size: 6rem;
+	}
+}
