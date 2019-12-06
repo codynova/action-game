@@ -3,15 +3,13 @@ import { useFrame } from 'react-three-fiber';
 import { Vector3, Quaternion } from 'three';
 import * as CANNON from 'cannon';
 
-// Cannon-world context provider
-const context = createContext<CANNON.World>({} as CANNON.World);
+const WorldContext = createContext<CANNON.World>({} as CANNON.World);
 
 export const PhysicsProvider = ({
 	children,
 }: {
 	children: React.ReactNode;
 }) => {
-	// Set up physics
 	const [ world ] = useState(() => new CANNON.World());
 
 	useEffect(() => {
@@ -23,28 +21,22 @@ export const PhysicsProvider = ({
 	// Run world stepper every frame
 	useFrame(() => world.step(1 / 60));
 
-	// Distribute world via context
 	return (
-		<context.Provider value={world}>
+		<WorldContext.Provider value={world}>
 			{children}
-		</context.Provider>
+		</WorldContext.Provider>
 	);
 };
 
-// Custom hook to maintain a world physics body
 export const useCannon = <T extends THREE.Object3D>({ ...props }, fn: (body: CANNON.Body) => void, deps = []) => {
 	const ref = useRef<T>();
-	// Get cannon world object
-	const world = useContext(context);
-	// Instanciate a physics body
+	const world = useContext(WorldContext);
 	const [ body ] = useState(() => new CANNON.Body(props));
 
 	useEffect(() => {
-		// Call function so the user can add shapes
+		// Call function so the user can add shapes, positions, etc. to the body
 		fn(body);
-		// Add body to world on mount
 		world.addBody(body);
-		// Remove body on unmount
 		return () => world.remove(body);
 	}, deps);
 
