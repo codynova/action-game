@@ -3,7 +3,18 @@ import { ReactThreeFiber, useThree, useFrame, useRender, useUpdate, Canvas, exte
 import { PerspectiveCamera } from 'three';
 import { useCannon, PhysicsProvider } from 'Hooks';
 import { Vector2, Vector3 } from 'Types';
+import { CapsuleGeometry } from 'Primitives';
 import * as CANNON from 'cannon';
+
+declare global {
+	namespace JSX {
+		interface IntrinsicElements {
+			capsuleGeometry: ReactThreeFiber.Object3DNode<CapsuleGeometry, typeof CapsuleGeometry>;
+		}
+	}
+}
+
+extend({ CapsuleGeometry })
 
 const Camera = (props: ReactThreeFiber.Object3DNode<PerspectiveCamera, typeof PerspectiveCamera>) => {
 	const cameraRef = useRef<PerspectiveCamera>({} as PerspectiveCamera);
@@ -57,7 +68,13 @@ const Capsule = ({
 	position: Vector3;
 	size: Vector3;
 }) => {
-	const capsuleRef = useCannon()
+	// const capsuleRef = useCannon();
+
+	return (
+		<mesh>
+			<capsuleGeometry />
+		</mesh>
+	);
 };
 
 const Item = ({

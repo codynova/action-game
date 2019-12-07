@@ -16,6 +16,7 @@
             "Components": [ "components" ],
             "Data": [ "data" ],
             "Hooks": [ "hooks" ],
+            "Primitives": [ "primitives" ],
             "Routes": [ "routes" ],
             "Services": [ "services" ],
             "Shaders": [ "shaders" ],
