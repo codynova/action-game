@@ -50,6 +50,16 @@ const Floor = ({
 	);
 };
 
+const Capsule = ({
+	position,
+	size,
+}: {
+	position: Vector3;
+	size: Vector3;
+}) => {
+	const capsuleRef = useCannon()
+};
+
 const Item = ({
 	position,
 	size,
