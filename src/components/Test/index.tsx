@@ -20,12 +20,9 @@ extend({ CapsuleGeometry });
 const Camera = (props: ReactThreeFiber.Object3DNode<PerspectiveCamera, typeof PerspectiveCamera>) => {
 	const cameraRef = useRef<PerspectiveCamera>({} as PerspectiveCamera);
 	const { setDefaultCamera } = useThree();
-
-	useEffect(() => {
-		setDefaultCamera(cameraRef.current);
-	}, []);
-
+	useEffect(() => void setDefaultCamera(cameraRef.current), []);
 	useFrame(() => cameraRef.current.updateMatrixWorld());
+
 	return (
 		<perspectiveCamera
 			{...props}
@@ -35,28 +32,31 @@ const Camera = (props: ReactThreeFiber.Object3DNode<PerspectiveCamera, typeof Pe
 };
 
 const Floor = ({
-	position,
-	width,
-	height,
-	color,
+	position = [ 0, 0, 0 ],
+	width = 10,
+	height = 10,
+	depth = 1.5,
+	color = '#272727',
 }: {
-	position: Vector3;
-	width: number;
-	height: number;
-	color: string;
+	position?: Vector3;
+	width?: number;
+	height?: number;
+	depth?: number;
+	color?: string;
 }) => {
 	const floorRef = useCannon({ mass: 0 }, body => {
-		body.addShape(new CANNON.Plane());
+		body.addShape(new CANNON.Box(new CANNON.Vec3(width * 0.5, height * 0.5, depth * 0.5)));
 		body.position.set(...position);
 	});
+
 	return (
 		<mesh
 			receiveShadow
 			ref={floorRef}
 		>
-			<planeBufferGeometry
+			<boxBufferGeometry
 				attach="geometry"
-				args={[ width, height ]}
+				args={[ width, height, depth ]}
 			/>
 			<meshPhongMaterial
 				attach="material"
@@ -66,38 +66,49 @@ const Floor = ({
 	);
 };
 
-// Attempt to make capsule physics based on CANNON.Cylinder
-
 const Capsule = ({
 	position = [ 0, 0, 0 ],
-	radius = 1,
-	height = 2,
+	radius = 0.5,
+	height = 1,
 	segments = 32,
+	cannonCallback,
 }: {
 	position?: Vector3;
 	radius?: number;
 	height?: number;
 	segments?: number;
+	cannonCallback?: (body: CANNON.Body) => void;
 }) => {
 	const capsuleRef = useCannon({ mass: 10 }, body => {
+		const sphereShape = new CANNON.Sphere(radius);
+		body.addShape(sphereShape, new CANNON.Vec3(0, height * 0.5, 0));
 		body.addShape(new CANNON.Cylinder(radius, radius, height, segments));
+		body.addShape(sphereShape, new CANNON.Vec3(0, -height * 0.5, 0));
 		body.position.set(...position);
+
+		if (cannonCallback) {
+			cannonCallback(body);
+		}
 	});
 
 	return (
 		<mesh
 			castShadow
+			receiveShadow
 			ref={capsuleRef}
 		>
 			<capsuleGeometry
 				attach="geometry"
 				args={[ radius, height, segments ]}
 			/>
-			<meshNormalMaterial
-				attach="material"
-				color="red"
-			/>
+			<meshNormalMaterial attach="material" />
 		</mesh>
+	);
+};
+
+const Player = () => {
+	return (
+		<Capsule cannonCallback={body => void (body.angularDamping = 1)} />
 	);
 };
 
@@ -116,6 +127,7 @@ const Cube = ({
 		body.addShape(new CANNON.Box(new CANNON.Vec3(width * 0.5, height * 0.5, depth * 0.5)));
 		body.position.set(...position);
 	});
+
 	return (
 		<mesh
 			castShadow
@@ -150,46 +162,19 @@ const Test = () => {
 				<PhysicsProvider>
 					<Cube
 						position={[ -0.5, -0.5, 1 ]}
-						width={1}
 						height={2}
-						depth={1}
 					/>
 					<Cube
 						position={[ 0, 0, 5 ]}
 						width={2}
-						height={1}
-						depth={1}
 					/>
 					<Cube
 						position={[ 0.5, 0.5, 7 ]}
-						width={1}
-						height={1}
 						depth={2}
 					/>
-					<Capsule
-						position={[ 0, 0, 2 ]}
-						radius={0.5}
-						height={1}
-						segments={32}
-					/>
-					<Capsule
-						position={[ 0.5, 0.5, 6 ]}
-						radius={0.5}
-						height={1}
-						segments={32}
-					/>
-					<Capsule
-						position={[ 0, 1, 4 ]}
-						radius={0.5}
-						height={1}
-						segments={32}
-					/>
-					<Floor
-						position={[ 0, 0, 0 ]}
-						width={10}
-						height={10}
-						color="#272727"
-					/>
+					<Capsule position={[ 2, 1, 7 ]} />
+					<Capsule position={[ 0, 1, 4 ]} />
+					<Floor />
 				</PhysicsProvider>
 			</Canvas>
 		</div>
