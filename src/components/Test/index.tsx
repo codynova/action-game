@@ -4,6 +4,8 @@ import { PhysicsProvider } from 'Contexts';
 import { PhysicsBodyWireframes } from 'Debug';
 import { Camera, Capsule, Cube, Player, Floor } from 'Components';
 
+// Consider making a PhysicsBody component instead of using useCannon
+
 const Test = () => {
 	return (
 		<div style={{ background: 'grey', width: '100%', height: '100%' }}>
