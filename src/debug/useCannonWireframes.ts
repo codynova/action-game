@@ -7,7 +7,7 @@ import { MeshBasicMaterial, SphereGeometry, BoxGeometry, PlaneGeometry, Mesh, Ge
 import { WorldContext } from 'Contexts';
 import * as CANNON from 'cannon';
 
-const cannonDebugRenderer = (scene: THREE.Scene, world: CANNON.World) => {
+const cannonWireframeRenderer = (scene: THREE.Scene, world: CANNON.World) => {
 	const _meshes: THREE.Mesh[] = [];
 	const tempVec0 = new CANNON.Vec3();
 	const tempQuat0 = new CANNON.Quaternion();
@@ -173,16 +173,16 @@ const cannonDebugRenderer = (scene: THREE.Scene, world: CANNON.World) => {
 	return update;
 };
 
-const useCannonDebug = () => {
+const useCannonWireframes = () => {
 	const { scene } = useThree();
 	const world = useContext(WorldContext);
 
 	if (!world) {
-		throw new Error('useCannonDebug world was undefined');
+		throw new Error('useCannonWireframes world was undefined');
 	}
 
-	const debugRenderer = cannonDebugRenderer(scene, world);
-	useFrame(() => debugRenderer());
+	const wireframeRenderer = cannonWireframeRenderer(scene, world);
+	useFrame(() => wireframeRenderer());
 };
 
-export { useCannonDebug };
+export { useCannonWireframes };

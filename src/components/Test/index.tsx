@@ -1,7 +1,7 @@
 import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import { PhysicsProvider } from 'Contexts';
-import { PhysicsDebugger } from 'Debug';
+import { PhysicsBodyWireframes } from 'Debug';
 import { Camera, Capsule, Cube, Player, Floor } from 'Components';
 
 const Test = () => {
@@ -21,7 +21,7 @@ const Test = () => {
 					rotation={[ 1, 0, 0 ]}
 				/>
 				<PhysicsProvider>
-					<PhysicsDebugger />
+					<PhysicsBodyWireframes />
 					<Cube
 						position={[ -0.5, -0.5, 1 ]}
 						height={2}

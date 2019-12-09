@@ -1,2 +1,2 @@
-export * from './PhysicsDebugger';
-export * from './useCannonDebug';
+export * from './PhysicsBodyWireframes';
+export * from './useCannonWireframes';
