@@ -15,6 +15,7 @@
             "Contexts": [ "contexts" ],
             "Components": [ "components" ],
             "Data": [ "data" ],
+            "Debug": [ "debug" ],
             "Hooks": [ "hooks" ],
             "Primitives": [ "primitives" ],
             "Routes": [ "routes" ],

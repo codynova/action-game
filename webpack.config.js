@@ -39,6 +39,7 @@ const commonConfig = devMode => ({
 			Contexts: path.resolve(SOURCE_DIRECTORY, 'contexts'),
 			Components: path.resolve(SOURCE_DIRECTORY, 'components'),
 			Data: path.resolve(SOURCE_DIRECTORY, 'data'),
+			Debug: path.resolve(SOURCE_DIRECTORY, 'debug'),
 			Hooks: path.resolve(SOURCE_DIRECTORY, 'hooks'),
 			Primitives: path.resolve(SOURCE_DIRECTORY, 'primitives'),
 			Routes: path.resolve(SOURCE_DIRECTORY, 'routes'),
