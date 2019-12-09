@@ -1,0 +1,12 @@
+diff --git a/node_modules/@types/cannon/index.d.ts b/node_modules/@types/cannon/index.d.ts
+index df5e55b..1e8a1e0 100644
+--- a/node_modules/@types/cannon/index.d.ts
++++ b/node_modules/@types/cannon/index.d.ts
+@@ -855,6 +855,7 @@ declare module CANNON {
+             HEIGHTFIELD: number;
+             PARTICLE: number;
+             CYLINDER: number;
++            TRIMESH: number;
+ 
+         }
+ 
