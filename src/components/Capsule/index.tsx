@@ -32,11 +32,13 @@ const Capsule = ({
 	cannonCallback?: (body: CANNON.Body) => void;
 }) => {
 	const capsuleRef = useCannon({ mass: 10 }, body => {
-		const sphereShape = new CANNON.Sphere(radius);
-		body.addShape(sphereShape, new CANNON.Vec3(0, 0, height * 0.5));
-		// body.addShape(new CANNON.Cylinder(radius, radius, height, segments));
-		body.addShape(new CANNON.Box(new CANNON.Vec3(radius * 0.8, radius * 0.8, height * 0.5)));
-		body.addShape(sphereShape, new CANNON.Vec3(0, 0, -height * 0.5));
+		// const sphereShape = new CANNON.Sphere(radius);
+		// body.addShape(sphereShape, new CANNON.Vec3(0, 0, height * 0.5));
+		// body.addShape(new CANNON.Box(new CANNON.Vec3(radius * 0.8, radius * 0.8, height * 0.5)));
+		// body.addShape(sphereShape, new CANNON.Vec3(0, 0, -height * 0.5));
+
+		body.addShape(new CANNON.Cylinder(radius, radius, height, segments));
+
 		body.position.set(...position);
 
 		if (cannonCallback) {
@@ -50,14 +52,14 @@ const Capsule = ({
 			receiveShadow
 			ref={capsuleRef}
 		>
-			<capsuleGeometry
+			{/* <capsuleGeometry
 				attach="geometry"
 				args={[ radius, height, segments ]}
 			/>
 			<meshStandardMaterial
 				attach="material"
 				color={color}
-			/>
+			/> */}
 		</mesh>
 	);
 };

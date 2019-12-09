@@ -1,8 +1,47 @@
 diff --git a/node_modules/@types/cannon/index.d.ts b/node_modules/@types/cannon/index.d.ts
-index df5e55b..1e8a1e0 100644
+index df5e55b..9d8c51e 100644
 --- a/node_modules/@types/cannon/index.d.ts
 +++ b/node_modules/@types/cannon/index.d.ts
-@@ -855,6 +855,7 @@ declare module CANNON {
+@@ -797,6 +797,38 @@ declare module CANNON {
+ 
+     }
+ 
++    export class Trimesh extends Shape {
++
++        vertices: Vec3[];
++        indices: number[];
++        normals: number[];
++        aabb: AABB;
++        scale: Vec3;
++        
++        constructor(vertices?: Vec3[], indices?: number[]);
++
++        updateTree(): void;
++        getTrianglesInAABB(aabb: AABB, result: number[]): number[];
++        setScale(): void;
++        updateNormals(): void;
++        updateEdges(): void;
++        getEdgeVertex(edgeIndex: number, firstOrSecond: 0 | 1, vertexStore: Vec3);
++        getEdgeVector(edgeIndex: number, vectoreStore: Vec3);
++        computeNormal(v1: Vec3, v2: Vec3, v3: Vec3, target: Vec3);
++        getVertex(i: number, out: Vec3): Vec3;
++        getWorldVertex(i: number, pos: Vec3, quat: Quaternion, out: Vec3): Vec3;
++        getTriangleVertices(i: number, a: Vec3, b: Vec3, c: Vec3): void;
++        getNormal(i: number, target: Vec3): Vec3;
++        calculateLocalInertia(mass: number, target: Vec3): Vec3;
++        computeLocalAABB(aabb: AABB): void;
++        updateAABB(aabb: AABB): void;
++        updateBoundingSphereRadius(): void;
++        calculateWorldAABB(pos: Vec3, quat: Quaternion, min: Vec3, max: Vec3): void;
++        volume(): number;
++        createTorus(radius: number, tube: number, radialSegments: number, tubularSegments: number, arc: number): Trimesh;
++
++    }
++
+     export interface IHightfield {
+ 
+         minValue?: number;
+@@ -855,12 +887,14 @@ declare module CANNON {
              HEIGHTFIELD: number;
              PARTICLE: number;
              CYLINDER: number;
@@ -10,3 +49,10 @@ index df5e55b..1e8a1e0 100644
  
          }
  
+         type: number;
+         boundingSphereRadius: number;
+         collisionResponse: boolean;
++        geometryId: number;
+ 
+         updateBoundingSphereRadius(): number;
+         volume(): number;
