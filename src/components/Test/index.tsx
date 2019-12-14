@@ -36,9 +36,14 @@ const Test = () => {
 						position={[ 0.5, 0.5, 7 ]}
 						depth={2}
 					/>
-					<Capsule position={[ 2, 1, 4 ]} />
+					<Capsule position={[ -2, -3, 3 ]} />
 					<Capsule position={[ 0, 1, 4 ]} />
-					<Player position={[ 2, 1, 4 ]} />
+					<Capsule position={[ -4, -1, 2 ]} />
+					<Capsule position={[ 4, 0, 1 ]} />
+					<Capsule position={[ 3, 2, 4 ]} />
+					<Capsule position={[ 1, -2, -1 ]} />
+					<Capsule position={[ -1, 3, 4 ]} />
+					{/* <Player position={[ 2, 1, 4 ]} /> */}
 					<Floor />
 				</PhysicsProvider>
 			</Canvas>
