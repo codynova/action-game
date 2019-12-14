@@ -266,7 +266,7 @@ const useCannonWireframes = () => {
 	const world = useContext(WorldContext);
 
 	if (!world) {
-		throw new Error('useCannonWireframes world was undefined');
+		throw new Error('useCannonWireframes must be used within a PhysicsProvider');
 	}
 
 	const wireframeRenderer = cannonWireframeRenderer(scene, world);
