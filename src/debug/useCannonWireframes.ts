@@ -65,8 +65,8 @@ const cannonWireframeRenderer = (scene: THREE.Scene, world: CANNON.World) => {
 				const geometry = new Geometry();
 
 				for (let i = 0; i < (shape as CANNON.ConvexPolyhedron).vertices.length; i++) {
-					const vertex = (shape as CANNON.ConvexPolyhedron).vertices[i];
-					geometry.vertices.push(new Vector3(vertex.x, vertex.y, vertex.y));
+					const { x, y, z } = (shape as CANNON.ConvexPolyhedron).vertices[i];
+					geometry.vertices.push(new Vector3(x, y, z));
 				}
 
 				for (let i = 0; i < (shape as CANNON.ConvexPolyhedron).faces.length; i++) {
