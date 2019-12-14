@@ -37,9 +37,12 @@ const Capsule = ({
 		// body.addShape(new CANNON.Box(new CANNON.Vec3(radius * 0.8, radius * 0.8, height * 0.5)));
 		// body.addShape(sphereShape, new CANNON.Vec3(0, 0, -height * 0.5));
 
-		body.addShape(new CANNON.Cylinder(radius, radius, height, segments));
-
+		const shape = new CANNON.Cylinder(radius, radius, height, segments);
+		body.addShape(shape);
 		body.position.set(...position);
+		const rotation = new CANNON.Quaternion();
+		rotation.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2);
+		shape.transformAllPoints(new CANNON.Vec3(0, 0, 0), rotation);
 
 		if (cannonCallback) {
 			cannonCallback(body);
@@ -52,6 +55,10 @@ const Capsule = ({
 			receiveShadow
 			ref={capsuleRef}
 		>
+			<cylinderGeometry
+				attach="geometry"
+				args={[ radius, radius, height, segments ]}
+			/>
 			{/* <capsuleGeometry
 				attach="geometry"
 				args={[ radius, height, segments ]}
