@@ -6,5 +6,6 @@ export * from './ErrorHandler';
 export * from './Floor';
 export * from './Player';
 export * from './PlayerBody';
+export * from './PlayerControls';
 export * from './Sphere';
 export * from './Test';
