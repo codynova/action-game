@@ -3,19 +3,15 @@ import { useCannon } from 'Hooks';
 import { Vector3 } from 'Types';
 import * as CANNON from 'cannon';
 
-const Cube = ({
+const Sphere = ({
 	position = [ 0, 0, 0 ],
-	width = 1,
-	height = 1,
-	depth = 1,
+	radius = 0.5,
 }: {
 	position?: Vector3;
-	width?: number;
-	height?: number;
-	depth?: number;
+	radius?: number;
 }) => {
-	const cubeRef = useCannon({ mass: 10 }, body => {
-		body.addShape(new CANNON.Box(new CANNON.Vec3(width * 0.5, height * 0.5, depth * 0.5)));
+	const sphereRef = useCannon({ mass: 10 }, body => {
+		body.addShape(new CANNON.Sphere(radius));
 		body.position.set(...position);
 	});
 
@@ -23,15 +19,15 @@ const Cube = ({
 		<mesh
 			castShadow
 			receiveShadow
-			ref={cubeRef}
+			ref={sphereRef}
 		>
-			<boxGeometry
+			<sphereGeometry
 				attach="geometry"
-				args={[ width, height, depth ]}
+				args={[ radius ]}
 			/>
 			<meshStandardMaterial attach="material" />
 		</mesh>
 	);
 };
 
-export { Cube };
+export { Sphere };

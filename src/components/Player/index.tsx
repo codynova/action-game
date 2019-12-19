@@ -1,6 +1,6 @@
 import React from 'react';
-import { Capsule } from 'Components';
 import { Vector3 } from 'Types';
+import { PlayerBody } from 'Components';
 
 const Player = ({
 	position = [ 0, 0, 0 ],
@@ -8,10 +8,9 @@ const Player = ({
 	position: Vector3;
 }) => {
 	return (
-		<Capsule
+		<PlayerBody
 			position={position}
 			color="blue"
-			cannonCallback={body => void (body.angularDamping = 1)}
 		/>
 	);
 };
