@@ -32,7 +32,7 @@ const commonConfig = devMode => ({
 	resolve: {
 		extensions: [ '.ts', '.tsx', '.js', '.jsx' ],
 		alias: {
-			'react-dom': '@hot-loader/react-dom',
+			'react-dom': devMode ? '@hot-loader/react-dom' : 'react-dom',
 			Actions: path.resolve(SOURCE_DIRECTORY, 'actions'),
 			Assets: path.resolve(SOURCE_DIRECTORY, 'assets'),
 			Constants: path.resolve(SOURCE_DIRECTORY, 'constants'),

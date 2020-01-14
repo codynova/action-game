@@ -1,7 +1,7 @@
 {
-	"extends": "@intouchgroup/eslint-config",
-	"rules": {
-		// Added no-undef to resolve https://github.com/eslint/typescript-eslint-parser/issues/437
-		"no-undef": "off"
-	}
+	"extends": "@intouchgroup/eslint-config"
+	// "rules": {
+	// 	// Added no-undef to resolve https://github.com/eslint/typescript-eslint-parser/issues/437
+	// 	"no-undef": "off"
+	// }
 }
