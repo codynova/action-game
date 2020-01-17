@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, useEffect } from 'react';
-import { ReactThreeFiber, useThree, useFrame, useRender, useUpdate, Canvas, extend } from 'react-three-fiber';
+import { ReactThreeFiber, useThree, useFrame, useUpdate, Canvas, extend } from 'react-three-fiber';
 import { Vector3, WebGLRenderTarget, Mesh, Layers, SphereGeometry } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';

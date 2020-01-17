@@ -1,12 +1,13 @@
 import React from 'react';
 import { Canvas } from 'react-three-fiber';
+import { AxesHelper } from 'react-three-fiber/components';
 import { PhysicsProvider } from 'Contexts';
 import { PhysicsBodyWireframes } from 'Debug';
 import { Camera, Capsule, Cube, Player, Floor } from 'Components';
 
 // Consider making a PhysicsBody component instead of using useCannon
 
-const Test = () => {
+const Scene = () => {
 	return (
 		<div style={{ background: 'grey', width: '100%', height: '100%' }}>
 			<Canvas shadowMap>
@@ -18,6 +19,7 @@ const Test = () => {
 					angle={0.3}
 					penumbra={1}
 				/>
+				<AxesHelper args={[ 15 ]} />
 				<Camera
 					position={[ 0, -15, 10 ]}
 					rotation={[ 1, 0, 0 ]}
@@ -49,4 +51,4 @@ const Test = () => {
 	);
 };
 
-export { Test };
+export { Scene };

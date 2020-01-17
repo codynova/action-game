@@ -4,6 +4,9 @@ import { Vector3 } from 'Types';
 import { PlayerBody, PlayerControls } from 'Components';
 import * as CANNON from 'cannon';
 
+// https://github.com/codynova/softworld-unity/tree/master/Assets/Scripts/Player
+// https://github.com/swift502/Sketchbook/blob/master/src/sketchbook/characters/Character.ts
+
 const Player = ({
 	position = [ 0, 0, 0 ],
 }: {
@@ -17,35 +20,31 @@ const Player = ({
 	const isJumpingRef = useRef(false);
 
 	useFrame(() => {
-		if (!playerBodyRef.current) {
+		const playerBody = playerBodyRef.current;
+
+		if (!playerBody) {
 			return;
 		}
 
-		const force = new CANNON.Vec3(0, 0, 0);
-		const worldPoint = new CANNON.Vec3(0, 0, 0);
-
 		if (isMovingForwardRef.current) {
-			force.y = -450 * (1 / 60);
+			playerBody.velocity.y += 1;
 		}
 
 		if (isMovingLeftRef.current) {
-			force.x = 350 * (1 / 60);
+			playerBody.velocity.x -= 1;
 		}
 
 		if (isMovingBackwardRef.current) {
-			force.y = 450 * (1 / 60);
+			playerBody.velocity.y -= 1;
 		}
 
 		if (isMovingRightRef.current) {
-			force.x = -350 * (1 / 60);
+			playerBody.velocity.x += 1;
 		}
 
 		if (isJumpingRef.current) {
-			force.z = 350 * (1 / 60);
+			playerBody.velocity.z += 1;
 		}
-
-		// playerBodyRef.current.applyForce(force, worldPoint);
-		playerBodyRef.current.applyImpulse(force, worldPoint);
 	});
 
 	return (
