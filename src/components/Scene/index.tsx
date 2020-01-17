@@ -4,12 +4,11 @@ import { AxesHelper } from 'react-three-fiber/components';
 import { PhysicsProvider } from 'Contexts';
 import { PhysicsBodyWireframes } from 'Debug';
 import { Camera, Capsule, Cube, Player, Floor } from 'Components';
-
-// Consider making a PhysicsBody component instead of using useCannon
+import styles from './module.scss';
 
 const Scene = () => {
 	return (
-		<div style={{ background: 'grey', width: '100%', height: '100%' }}>
+		<div className={styles.container}>
 			<Canvas shadowMap>
 				<ambientLight intensity={0.5} />
 				<spotLight

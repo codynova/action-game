@@ -1,1 +1,1 @@
-export const test: string;
+export const container: string;

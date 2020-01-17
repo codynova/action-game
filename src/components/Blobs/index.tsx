@@ -1,6 +1,6 @@
 import React, { useRef, useMemo, useEffect } from 'react';
-import { ReactThreeFiber, useThree, useFrame, useUpdate, Canvas, extend } from 'react-three-fiber';
-import { Vector3, WebGLRenderTarget, Mesh, Layers, SphereGeometry } from 'three';
+import { ReactThreeFiber, extend, useThree, useFrame, useUpdate } from 'react-three-fiber';
+import { SphereGeometry } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
@@ -145,21 +145,3 @@ const ShadedGeometry = ({
 		</mesh>
 	);
 };
-
-const Blobs = () => {
-	return (
-		<Canvas>
-			<AnimatedGeometry
-				position={[ -0.7, 0, 0 ]}
-				faceResolution={200}
-			/>
-			<ShadedGeometry
-				position={[ 0.7, 0, 0 ]}
-				faceResolution={200}
-			/>
-			<Effect />
-		</Canvas>
-	);
-};
-
-export { Blobs };
