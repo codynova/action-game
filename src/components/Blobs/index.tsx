@@ -135,3 +135,9 @@ const ShadedGeometry = ({
 		</mesh>
 	);
 };
+
+export {
+	DeformedGeometry,
+	AnimatedGeometry,
+	ShadedGeometry,
+};
