@@ -1,15 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { PerspectiveCamera } from 'three';
+import { PerspectiveCamera, Vector3 } from 'three';
 import { ReactThreeFiber, extend, useThree, useFrame } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
-declare global {
-	namespace JSX {
-		interface IntrinsicElements {
-			orbitControls: ReactThreeFiber.Object3DNode<OrbitControls, typeof OrbitControls>;
-		}
-	}
-}
 
 extend({ OrbitControls });
 
@@ -29,10 +21,20 @@ const Camera = (props: ReactThreeFiber.Object3DNode<PerspectiveCamera, typeof Pe
 			<perspectiveCamera
 				{...props}
 				ref={cameraRef}
+				position={[ 0, -15, 10 ]}
+				up={new Vector3(0, 0, 1)}
 			/>
 			<orbitControls
+				autoRotate
+				enableDamping
 				ref={controlsRef}
 				args={[ camera, gl.domElement ]}
+				dampingFactor={0.2}
+				enablePan={false}
+				enableZoom={false}
+				rotateSpeed={0.5}
+				minPolarAngle={Math.PI / 3}
+				maxPolarAngle={Math.PI / 3}
 			/>
 		</>
 	);

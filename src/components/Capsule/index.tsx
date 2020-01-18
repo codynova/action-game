@@ -1,17 +1,9 @@
 import React from 'react';
-import { extend, ReactThreeFiber } from 'react-three-fiber';
+import { extend } from 'react-three-fiber';
 import { CapsuleGeometry } from 'Primitives';
 import { useCannon } from 'Hooks';
 import { Vector3 } from 'Types';
 import * as CANNON from 'cannon';
-
-declare global {
-	namespace JSX {
-		interface IntrinsicElements {
-			capsuleGeometry: ReactThreeFiber.Object3DNode<typeof CapsuleGeometry, Parameters<typeof CapsuleGeometry>>;
-		}
-	}
-}
 
 extend({ CapsuleGeometry });
 

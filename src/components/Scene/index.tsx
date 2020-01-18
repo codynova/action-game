@@ -19,10 +19,7 @@ const Scene = () => {
 					penumbra={1}
 				/>
 				<AxesHelper args={[ 15 ]} />
-				<Camera
-					position={[ 0, -15, 10 ]}
-					rotation={[ 1, 0, 0 ]}
-				/>
+				<Camera />
 				<PhysicsProvider>
 					<PhysicsBodyWireframes />
 					<Cube

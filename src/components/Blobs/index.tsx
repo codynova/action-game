@@ -8,16 +8,6 @@ import { VolumetricLightShader, TestShader } from 'Shaders';
 
 declare let noise: any;
 
-declare global {
-	namespace JSX {
-		interface IntrinsicElements {
-			effectComposer: ReactThreeFiber.Object3DNode<EffectComposer, typeof EffectComposer>;
-			renderPass: ReactThreeFiber.Object3DNode<RenderPass, typeof RenderPass>;
-			shaderPass: ReactThreeFiber.Object3DNode<ShaderPass, typeof ShaderPass>;
-		}
-	}
-}
-
 extend({ EffectComposer, RenderPass, ShaderPass });
 
 const Effect = () => {
