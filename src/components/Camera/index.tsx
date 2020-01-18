@@ -22,7 +22,7 @@ const Camera = (props: ReactThreeFiber.Object3DNode<PerspectiveCamera, typeof Pe
 				{...props}
 				ref={cameraRef}
 				position={[ 0, -15, 10 ]}
-				up={new Vector3(0, 0, 1)}
+				up={[ 0, 0, 1 ]}
 			/>
 			<orbitControls
 				autoRotate

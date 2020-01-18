@@ -3,7 +3,7 @@ import { Canvas } from 'react-three-fiber';
 import { AxesHelper } from 'react-three-fiber/components';
 import { PhysicsProvider } from 'Contexts';
 import { PhysicsBodyWireframes } from 'Debug';
-import { Camera, Capsule, Cube, Player, Floor } from 'Components';
+import { Background, Camera, Capsule, Cube, Mirror, Player, Floor } from 'Components';
 import styles from './module.scss';
 
 const Scene = () => {
@@ -40,8 +40,10 @@ const Scene = () => {
 					<Capsule position={[ 4, 0, 1 ]} />
 					<Capsule position={[ 3, 2, 4 ]} />
 					<Player position={[ 2, 2, 2 ]} />
+					<Mirror />
 					<Floor />
 				</PhysicsProvider>
+				<Background />
 			</Canvas>
 		</div>
 	);
