@@ -20,7 +20,7 @@ const Scene2 = () => {
 				/>
 				<AxesHelper args={[ 15 ]} />
 				<Camera />
-				<RaymarchBlob />
+				{/* <RaymarchBlob /> */}
 				<PhysicsProvider>
 					<PhysicsBodyWireframes />
 					<Cube
