@@ -2,6 +2,7 @@ import React, { useRef, useMemo, useEffect } from 'react';
 import { useThree, useFrame, useUpdate } from 'react-three-fiber';
 import { SphereGeometry } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { Vector3 } from 'Types';
 import { VolumetricLightShader, TestShader } from 'Shaders';
 
 declare let noise: any;
@@ -67,7 +68,7 @@ const AnimatedGeometry = ({
 	position,
 	faceResolution,
 }: {
-	position: [number, number, number];
+	position: Vector3;
 	faceResolution: number;
 }) => {
 	const sphereGeometryRef = useRef<SphereGeometry>();
@@ -106,7 +107,7 @@ const ShadedGeometry = ({
 	position,
 	faceResolution,
 }: {
-	position: [number, number, number];
+	position: Vector3;
 	faceResolution: number;
 }) => {
 	const shaderMaterial = useRef<THREE.ShaderMaterial>();

@@ -9,7 +9,7 @@ export * from './Mirror';
 export * from './Player';
 export * from './PlayerBody';
 export * from './PlayerControls';
-export * from './RaymarchBlob';
+export * from './RaymarchBlobPlane';
 export * from './Scene';
 export * from './Scene2';
 export * from './Sphere';

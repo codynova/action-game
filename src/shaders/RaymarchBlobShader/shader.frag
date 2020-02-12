@@ -45,18 +45,18 @@ const vec3 bgColor = vec3(1.0, 0.9, 0.9);
 
 float gamma = 1.8;
 
-struct bStruct {
+struct blobStruct {
 	vec3 color;
 	vec3 pos;
 	float speed;
 };
 
-uniform bStruct blobs[NUM_BLOBS];
+uniform blobStruct blobs[NUM_BLOBS];
 float numBlobs = float(NUM_BLOBS);
 
 float smoothIntensity = 0.8;
 
-vec3 blobPos (int i, bStruct blob)
+vec3 blobPos (int i, blobStruct blob)
 {
 	float radian = 50.0 * PI/numBlobs * float(i);
 	vec3 pos = vec3(
@@ -187,10 +187,10 @@ void main (void)
 	vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
 
 	vec3 camera_position = vec3(0.0, 0.0, -4.0);
-	vec3 ro = camera_position;  // ray's origin
-	vec3 rd = normalize(vec3(p, 1.0));  // ray's direction
+	vec3 rayOrigin = camera_position;
+	vec3 rayDirection = normalize(vec3(p, 1.0));
 
-	vec3 color = rayMarch(ro, rd);
+	vec3 color = rayMarch(rayOrigin, rayDirection);
 	color = pow(color, vec3(1.0 / gamma));
 
 	gl_FragColor = vec4(color, 1.0);
