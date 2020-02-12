@@ -1,10 +1,19 @@
-import { ReactThreeFiber } from 'react-three-fiber';
+import { extend, ReactThreeFiber } from 'react-three-fiber';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Reflector } from 'three/examples/jsm/objects/Reflector';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { CapsuleGeometry } from 'Primitives';
+
+extend({
+    CapsuleGeometry,
+    EffectComposer,
+    OrbitControls,
+    Reflector,
+    RenderPass,
+    ShaderPass,
+});
 
 declare global {
 	namespace JSX {

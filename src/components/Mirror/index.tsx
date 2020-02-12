@@ -1,8 +1,5 @@
 import React from 'react';
-import { extend, useThree } from 'react-three-fiber';
-import { Reflector } from 'three/examples/jsm/objects/Reflector';
-
-extend({ Reflector });
+import { useThree } from 'react-three-fiber';
 
 const Mirror = () => {
 	const { size: { width, height } } = useThree();

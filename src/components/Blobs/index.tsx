@@ -1,14 +1,10 @@
 import React, { useRef, useMemo, useEffect } from 'react';
-import { extend, useThree, useFrame, useUpdate } from 'react-three-fiber';
+import { useThree, useFrame, useUpdate } from 'react-three-fiber';
 import { SphereGeometry } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { VolumetricLightShader, TestShader } from 'Shaders';
 
 declare let noise: any;
-
-extend({ EffectComposer, RenderPass, ShaderPass });
 
 const Effect = () => {
 	const composer = useRef<EffectComposer>();

@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { PerspectiveCamera, Vector3 } from 'three';
-import { ReactThreeFiber, extend, useThree, useFrame } from 'react-three-fiber';
+import { ReactThreeFiber, useThree, useFrame } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
-extend({ OrbitControls });
 
 const Camera = (props: ReactThreeFiber.Object3DNode<PerspectiveCamera, typeof PerspectiveCamera>) => {
 	const cameraRef = useRef<PerspectiveCamera>();

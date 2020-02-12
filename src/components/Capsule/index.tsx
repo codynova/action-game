@@ -1,11 +1,7 @@
 import React from 'react';
-import { extend } from 'react-three-fiber';
-import { CapsuleGeometry } from 'Primitives';
 import { useCannon } from 'Hooks';
 import { Vector3 } from 'Types';
 import * as CANNON from 'cannon';
-
-extend({ CapsuleGeometry });
 
 const Capsule = ({
 	position = [ 0, 0, 0 ],
