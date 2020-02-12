@@ -162,6 +162,7 @@ const applicationConfig = devMode => ({
 	entry: [
 		'core-js/stable',
 		'react-hot-loader/patch',
+		'./extends.ts',
 		'./index.tsx',
 	],
 	output: {

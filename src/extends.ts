@@ -7,12 +7,12 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { CapsuleGeometry } from 'Primitives';
 
 extend({
-    CapsuleGeometry,
-    EffectComposer,
-    OrbitControls,
-    Reflector,
-    RenderPass,
-    ShaderPass,
+	CapsuleGeometry,
+	EffectComposer,
+	OrbitControls,
+	Reflector,
+	RenderPass,
+	ShaderPass,
 });
 
 declare global {
