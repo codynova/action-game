@@ -8,7 +8,8 @@ uniform float weight;
 uniform int samples;
 const int MAX_SAMPLES = 100;
 
-void main () {
+void main ()
+{
 	vec2 texCoord = vUv;
 	vec2 deltaTextCoord = texCoord - lightPosition;
 	deltaTextCoord *= 1.0 / float(samples) * density;
