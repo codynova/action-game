@@ -144,6 +144,10 @@ const commonConfig = devMode => ({
 					},
 				]
 			},
+			{
+				test: /\.(vert|frag)/,
+				use: 'raw-loader',
+			}
 		],
 	},
 	devtool: devMode ? 'cheap-module-source-map' : '', // Script source maps
