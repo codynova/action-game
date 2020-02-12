@@ -3,7 +3,7 @@ import { Canvas } from 'react-three-fiber';
 import { AxesHelper } from 'react-three-fiber/components';
 import { PhysicsProvider } from 'Contexts';
 import { PhysicsBodyWireframes } from 'Debug';
-import { Background, Camera, Capsule, Cube, Mirror, Player, Floor, AnimatedGeometry, ShadedGeometry, RaymarchBlob, RaymarchTest } from 'Components';
+import { Background, Camera, Capsule, Cube, Mirror, Player, Floor, AnimatedGeometry, ShadedGeometry, RaymarchBlob, RaymarchTest, RaymarchEffect } from 'Components';
 import styles from './module.scss';
 
 const Scene2 = () => {
@@ -20,6 +20,7 @@ const Scene2 = () => {
 				/>
 				<AxesHelper args={[ 15 ]} />
 				<Camera />
+				{/* <RaymarchEffect /> */}
 				{/* <RaymarchBlob position={[ -2.5, 5.5, 5.5 ]} /> */}
 				<RaymarchTest position={[ -2.5, 5.5, 5.5 ]} />
 				<PhysicsProvider>

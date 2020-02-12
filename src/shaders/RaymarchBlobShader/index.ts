@@ -1,5 +1,4 @@
-import { Vector3 } from 'three';
-import { Shader } from 'Types';
+import { Shader } from 'three';
 import vertexShader from './shader.vert';
 import fragmentShader from './shader.frag';
 
@@ -9,12 +8,14 @@ const setHex = (hex: number) => {
 	const g = ((hex >> 8) & 255) / 255;
 	const b = (hex & 255) / 255;
 
-	return new Vector3(r, g, b);
+	return [ r, g, b ];
 };
 
 const RaymarchBlobShader: Shader = {
+	transparent: true,
 	uniforms: {
 		time: { value: 0.0 },
+		resolution: { value: [ 0, 0 ] },
 
 		'blobs[0].color': {
 			value: setHex(0xffb6b9),
@@ -38,23 +39,23 @@ const RaymarchBlobShader: Shader = {
 		},
 
 		'blobs[0].pos': {
-			value: new Vector3(1.0, 1.0, 1.0),
+			value: [ 1.0, 1.0, 1.0 ],
 			type: 'v3',
 		},
 		'blobs[1].pos': {
-			value: new Vector3(1.0, -0.5, -1.0),
+			value: [ 1.0, -0.5, -1.0 ],
 			type: 'v3',
 		},
 		'blobs[2].pos': {
-			value: new Vector3(-0.8, 1.0, -0.5),
+			value: [ -0.8, 1.0, -0.5 ],
 			type: 'v3',
 		},
 		'blobs[3].pos': {
-			value: new Vector3(-0.4, -1.0, 0.5),
+			value: [ -0.4, -1.0, 0.5 ],
 			type: 'v3',
 		},
 		'blobs[4].pos': {
-			value: new Vector3(-0.5, 0.7, 1.0),
+			value: [ -0.5, 0.7, 1.0 ],
 			type: 'v3',
 		},
 

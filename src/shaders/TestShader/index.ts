@@ -1,4 +1,4 @@
-import { Shader } from 'Types';
+import { Shader } from 'three';
 import vertexShader from './shader.vert';
 import fragmentShader from './shader.frag';
 
