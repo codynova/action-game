@@ -19,6 +19,7 @@
             "Hooks": [ "hooks" ],
             "Primitives": [ "primitives" ],
             "Routes": [ "routes" ],
+            "Scenes": [ "scenes" ],
             "Services": [ "services" ],
             "Shaders": [ "shaders" ],
             "Styles": [ "styles" ],

@@ -20,6 +20,7 @@ const TSCONFIG_PATH = path.resolve(__dirname, 'tsconfig.json');
 
 const CSS_MODULE_LOADER_INCLUDES = [
 	path.resolve(SOURCE_DIRECTORY, 'components'),
+	path.resolve(SOURCE_DIRECTORY, 'scenes'),
 ];
 
 const CSS_GLOBAL_LOADER_INCLUDES = [
@@ -43,6 +44,7 @@ const commonConfig = devMode => ({
 			Hooks: path.resolve(SOURCE_DIRECTORY, 'hooks'),
 			Primitives: path.resolve(SOURCE_DIRECTORY, 'primitives'),
 			Routes: path.resolve(SOURCE_DIRECTORY, 'routes'),
+			Scenes: path.resolve(SOURCE_DIRECTORY, 'scenes'),
 			Services: path.resolve(SOURCE_DIRECTORY, 'services'),
 			Shaders: path.resolve(SOURCE_DIRECTORY, 'shaders'),
 			Styles: path.resolve(SOURCE_DIRECTORY, 'styles'),
@@ -205,8 +207,8 @@ const applicationConfig = devMode => ({
 					to: path.resolve(OUTPUT_DIRECTORY, 'index.html'),
 				},
 				{
-					from: path.resolve(SOURCE_DIRECTORY, 'perlin.js'),
-					to: path.resolve(OUTPUT_DIRECTORY, 'perlin.js'),
+					from: path.resolve(SOURCE_DIRECTORY, 'vendor'),
+					to: path.resolve(OUTPUT_DIRECTORY, 'vendor'),
 				},
 			],
 			{

@@ -1,12 +1,13 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import 'Styles/styles.scss';
-import { ErrorHandler, Scene2 } from 'Components';
+import { ErrorHandler } from 'Components';
+import { Test1, Test2 } from 'Scenes';
 
 const App = () => {
 	return (
 		<ErrorHandler>
-			<Scene2 />
+			<Test2 />
 		</ErrorHandler>
 	);
 };

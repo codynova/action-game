@@ -6,7 +6,7 @@ import { PhysicsBodyWireframes } from 'Debug';
 import { Background, Camera, Capsule, Cube, Mirror, Player, Floor, AnimatedGeometry, ShadedGeometry, RaymarchBlobPlane } from 'Components';
 import styles from './module.scss';
 
-const Scene2 = () => {
+const Test2 = () => {
 	return (
 		<div className={styles.container}>
 			<Canvas shadowMap>
@@ -61,4 +61,4 @@ const Scene2 = () => {
 	);
 };
 
-export { Scene2 };
+export { Test2 };
