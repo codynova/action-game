@@ -25,6 +25,7 @@ const RaymarchMetaball = ({
 				args={[ width, height ]}
 			/>
 			<shaderMaterial
+				transparent
 				attach="material"
 				args={[ RaymarchMetaballShader ]}
 				ref={shaderMaterial}
