@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { useThree, useFrame } from 'react-three-fiber';
 import { Vector3 } from 'Types';
-import { RaymarchBlobShader } from 'Shaders';
+import { RaymarchMetaballShader } from 'Shaders';
 
-const RaymarchBlobPlane = ({
+const RaymarchMetaball = ({
 	width = 1,
 	height = 1,
 }: {
@@ -26,11 +26,11 @@ const RaymarchBlobPlane = ({
 			/>
 			<shaderMaterial
 				attach="material"
-				args={[ RaymarchBlobShader ]}
+				args={[ RaymarchMetaballShader ]}
 				ref={shaderMaterial}
 			/>
 		</mesh>
 	);
 };
 
-export { RaymarchBlobPlane };
+export { RaymarchMetaball };

@@ -11,7 +11,7 @@ const hexColorToRGB = (hex: number) => {
 	return [ r, g, b ];
 };
 
-const RaymarchBlobShader: Shader = {
+const RaymarchMetaballShader: Shader = {
 	uniforms: {
 		time: { value: 0.0 },
 		resolution: { value: [ 0, 0 ] },
@@ -49,4 +49,4 @@ const RaymarchBlobShader: Shader = {
 	fragmentShader,
 };
 
-export { RaymarchBlobShader };
+export { RaymarchMetaballShader };

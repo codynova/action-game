@@ -3,7 +3,7 @@ import { Canvas } from 'react-three-fiber';
 import { AxesHelper } from 'react-three-fiber/components';
 import { PhysicsProvider } from 'Contexts';
 import { PhysicsBodyWireframes } from 'Debug';
-import { Background, Camera, Capsule, Cube, Mirror, Player, Floor, AnimatedGeometry, ShadedGeometry, RaymarchBlobPlane } from 'Components';
+import { Background, Camera, Capsule, Cube, Mirror, Player, Floor, AnimatedGeometry, ShadedGeometry, RaymarchMetaball } from 'Components';
 import styles from './module.scss';
 
 const Test2 = () => {
@@ -20,7 +20,7 @@ const Test2 = () => {
 				/>
 				<AxesHelper args={[ 15 ]} />
 				<Camera />
-				<RaymarchBlobPlane />
+				<RaymarchMetaball />
 				<PhysicsProvider>
 					<PhysicsBodyWireframes />
 					<Cube

@@ -9,5 +9,5 @@ export * from './Mirror';
 export * from './Player';
 export * from './PlayerBody';
 export * from './PlayerControls';
-export * from './RaymarchBlobPlane';
+export * from './RaymarchMetaball';
 export * from './Sphere';
